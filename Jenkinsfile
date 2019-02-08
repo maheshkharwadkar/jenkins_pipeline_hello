@@ -1,6 +1,23 @@
 node {
-   stage 'Stage 1'
-   		echo 'Hello World 1'
-   stage 'Stage 2'
-   		echo 'Hello World 2'
+    stage('build'){
+        echo "building"
+    }
+}
+node {
+    stage('verify'){
+        echo "verify"
+    }
+}
+node {
+    stage('test'){
+        echo "testing"
+    }
+}
+stage('Get approval'){
+    input "Deploy to qa?"
+}
+node {
+    stage('deploy to qa'){
+        echo "deploying"
+    }
 }
